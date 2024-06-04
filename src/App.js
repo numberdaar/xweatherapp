@@ -85,7 +85,7 @@ function App() {
             return;
         }
 
-        const apiKey = 'Your_API_KEY'; // Replace with your actual API key
+        const apiKey = 'b7cac01525aa4a0f955194837242803';
         const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
         setLoading(true);
