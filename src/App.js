@@ -78,10 +78,11 @@ function App() {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const fetchWeatherData = async () => {
         if (city.trim() === '') {
-            alert('Please enter a city name');
+            setError('Please enter a city name');
             return;
         }
 
@@ -89,6 +90,7 @@ function App() {
         const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
         setLoading(true);
+        setError('');
         setWeatherData(null);
 
         try {
@@ -99,7 +101,7 @@ function App() {
             const data = await response.json();
             setWeatherData(data);
         } catch (error) {
-            alert('Failed to fetch weather data');
+            setError('Failed to fetch weather data');
         } finally {
             setLoading(false);
         }
@@ -116,6 +118,7 @@ function App() {
             />
             <button onClick={fetchWeatherData}>Search</button>
             {loading && <p>Loading data...</p>}
+            {error && <p>{error}</p>}
             {weatherData && (
                 <div className="weather-cards">
                     <div className="weather-card">
@@ -131,5 +134,6 @@ function App() {
 }
 
 export default App;
+
 
 
