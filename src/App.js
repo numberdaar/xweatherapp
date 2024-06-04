@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css'; 
+import './App.css'; // Import the CSS file
 import WeatherCard from './WeatherCard';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_KEY = 'b7cac01525aa4a0f955194837242803';
+  const API_KEY = 'Your_API_KEY'; // Replace with your actual API key
 
   const handleSearch = async () => {
     setLoading(true);
