@@ -72,6 +72,7 @@
 // export default App;
 
 import React, { useState } from 'react';
+import WeatherCard from './WeatherCard';
 import './App.css';
 
 function App() {
@@ -122,10 +123,22 @@ function App() {
             {weatherData && (
                 <div className="weather-cards">
                     <div className="weather-card">
-                        <p>Temperature: {weatherData.current.temp_c}°C</p>
-                        <p>Humidity: {weatherData.current.humidity}%</p>
-                        <p>Condition: {weatherData.current.condition.text}</p>
-                        <p>Wind Speed: {weatherData.current.wind_kph} kph</p>
+                    <WeatherCard
+            label="Temperature"
+            value={`${weatherData.current.temp_c} °C`}
+          />
+          <WeatherCard
+            label="Humidity"
+            value={`${weatherData.current.humidity} %`}
+          />
+          <WeatherCard
+            label="Condition"
+            value={weatherData.current.condition.text}
+          />
+          <WeatherCard
+            label="Wind Speed"
+            value={`${weatherData.current.wind_kph} kph`}
+          />
                     </div>
                 </div>
             )}
