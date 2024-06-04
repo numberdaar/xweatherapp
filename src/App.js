@@ -121,32 +121,28 @@ function App() {
             {loading && <p>Loading data...</p>}
             {error && <p>{error}</p>}
             {weatherData && (
-                <div className="weather-cards">
-                    <div className="weather-card">
-                    <WeatherCard
+    <div className="weather-cards">
+        <WeatherCard
             label="Temperature"
             value={`${weatherData.current.temp_c} °C`}
-          />
-          <WeatherCard
+        />
+        <WeatherCard
             label="Humidity"
             value={`${weatherData.current.humidity} %`}
-          />
-          <WeatherCard
+        />
+        <WeatherCard
             label="Condition"
             value={weatherData.current.condition.text}
-          />
-          <WeatherCard
+        />
+        <WeatherCard
             label="Wind Speed"
             value={`${weatherData.current.wind_kph} kph`}
-          />
-                    </div>
-                </div>
-            )}
+        />
+    </div>
+)}
+
         </div>
     );
 }
 
 export default App;
-
-
-
